@@ -2,16 +2,100 @@ import './style.css';
 import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+//import Map from 'ol/Map.js';
+//import OSM from 'ol/source/OSM.js';
+import TileJSON from 'ol/source/TileJSON.js';
+//import View from 'ol/View.js';
+import {Group as LayerGroup} from 'ol/layer.js';
+import {fromLonLat} from 'ol/proj.js';
+import Stamen from 'ol/source/Stamen.js';
 
+// const map1 = new Map({
+//   target: 'map',
+//   layers: [
+//     new TileLayer({
+//       source: new OSM()
+//     })
+//   ],
+//   view: new View({
+//     center: [0, 0],
+//     zoom: 2
+//   })
+// });
 const map = new Map({
-  target: 'map',
   layers: [
     new TileLayer({
-      source: new OSM()
-    })
+      source: new OSM(),
+    }),
+     
+    new LayerGroup({
+      layers: [
+         
+        new TileLayer({
+          source: new Stamen({
+            layer: 'watercolor',
+          }),
+        }),
+        new TileLayer({
+          source: new Stamen({
+            layer: 'terrain-labels',
+          }),
+        }),
+         
+      
+        // new TileLayer({
+        //   source: new TileJSON({
+        //     url:
+        //       'https://api.tiles.mapbox.com/v4/mapbox.20110804-hoa-foodinsecurity-3month.json?secure&access_token=' +
+        //       key,
+        //     crossOrigin: 'anonymous',
+        //   }),
+        // }),
+        // new TileLayer({
+        //   source: new TileJSON({
+        //     url:
+        //       'https://api.tiles.mapbox.com/v4/mapbox.world-borders-light.json?secure&access_token=' +
+        //       key,
+        //     crossOrigin: 'anonymous',
+        //   }),
+        // }),
+      ],
+    }),
   ],
+  target: 'map',
   view: new View({
-    center: [0, 0],
-    zoom: 2
-  })
+    center: fromLonLat([37.4057, 8.81566]),
+    zoom: 4,
+  }),
 });
+
+function bindInputs(layerid, layer) {
+  const visibilityInput = $(layerid + ' input.visible');
+  visibilityInput.on('change', function () {
+    layer.setVisible(this.checked);
+  });
+  visibilityInput.prop('checked', layer.getVisible());
+
+  const opacityInput = $(layerid + ' input.opacity');
+  opacityInput.on('input', function () {
+    layer.setOpacity(parseFloat(this.value));
+  });
+  opacityInput.val(String(layer.getOpacity()));
+}
+function setup(id, group) {
+  group.getLayers().forEach(function (layer, i) {
+    const layerid = id + i;
+    bindInputs(layerid, layer);
+    if (layer instanceof LayerGroup) {
+      setup(layerid, layer);
+    }
+  });
+}
+setup('#layer', map.getLayerGroup());
+
+$('#layertree li > span')
+  .click(function () {
+    $(this).siblings('fieldset').toggle();
+  })
+  .siblings('fieldset')
+  .hide();

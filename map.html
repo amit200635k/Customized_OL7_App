@@ -12,8 +12,7 @@
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-  <script src="./js/login.js"></script>
+  <script src="./js/custom.js"></script>
 </head>
 
 <body>
@@ -33,7 +32,7 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
             </div>
-            <!-- <div class="offcanvas-body">
+            <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
                   <div class="nav-link" id="home"><i class="far fa-house"></i> WorkArea1</div>
@@ -57,59 +56,12 @@
                 </li>
               </ul>
 
-            </div> -->
+            </div>
           </div>
         </div>
       </nav>
     </div>
-
-    <section class="bg-white py-10">
-      <div class="container mt-5">
-        <div class="row">
-          <div class="d-none"><input name="refurl" type="text" id="refurl" /></div>
-          <div class="col-md-4 offset-md-4">.
-            <div class="card">
-              <h4 class="card-header bg-warning text-uppercase text-dark" id="login">
-                <i class="fa fa-user famarten"></i> Login:</h4>
-              <div class="card-body custom-scroll portlet">
-                <div class="error-message"></div>
-                <form id="login_frm" method="post" class="form-signin" autocomplete="off">
-                  <div class="row">
-                    <div class="col-md-4"><i class="fa fa-mobile"></i> Mobile No:</div>
-                    <div class="col-md-8"><input name="txtmobile" type="text" id="txtmobile" tabindex="1"
-                        class="form-control" required="" /></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-4"><i class="fa fa-key"></i> Password:</div>
-                    <div class="col-md-8"><input name="txtpassword" type="password" id="txtpassword" tabindex="2"
-                        class="form-control" required="" /></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4"><i class="fa fa-sync"></i> Captcha:</div>
-                    <div class="col-md-8">
-                      <div class="g-recaptcha" data-sitekey="6Lf0cfscAAAAAIrPRaBAQ0COM9kwaAMinyh-8-oq"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-8"><input type="submit" name="log_button" value="Login" id="log_button"
-                        tabindex="4" class="btn btn-primary fa-input" /></div>
-                  </div>
-
-                </form>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-md-3" id="workAreaX">
         <div class="card">
           <div class="card-header">Layers</div>
@@ -183,9 +135,9 @@
       </div>
 
 
-    </div> -->
+    </div>
   </div>
-  <!-- <script type="module" src="./main.js"></script> -->
+  <script type="module" src="./main.js"></script>
 
 </body>
 
