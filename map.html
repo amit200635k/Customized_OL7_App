@@ -67,7 +67,7 @@
           <div class="card-header">Layers</div>
           <div class="card-body">
             <div id="layertree">
-              <h5>Click on layer nodes below to change their properties.</h5>
+              <h6>Basemaps:</h5>
               <ul>
                 <li><span>OSM layer</span>
                   <fieldset id="layer0">
@@ -79,8 +79,94 @@
                     </label>
                   </fieldset>
                 </li>
+                <li><span>Google Sattelite</span>
+                  <fieldset id="layer1">
+                    <label class="checkbox" for="visible1">
+                      visible <input id="visible1" class="visible" type="checkbox"/>
+                    </label>
+                    <label>
+                      opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                    </label>
+                  </fieldset>
+                </li>
+                <li><span>Google Hybrid</span>
+                  <fieldset id="layer2">
+                    <label class="checkbox" for="visible2">
+                      visible <input id="visible2" class="visible" type="checkbox"/>
+                    </label>
+                    <label>
+                      opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                    </label>
+                  </fieldset>
+                </li>
+                <li><span>Google Streets</span>
+                  <fieldset id="layer3">
+                    <label class="checkbox" for="visible3">
+                      visible <input id="visible3" class="visible" type="checkbox"/>
+                    </label>
+                    <label>
+                      opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                    </label>
+                  </fieldset>
+                </li>
+                <li><span>Google Terrain</span>
+                  <fieldset id="layer4">
+                    <label class="checkbox" for="visible4">
+                      visible <input id="visible4" class="visible" type="checkbox"/>
+                    </label>
+                    <label>
+                      opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                    </label>
+                  </fieldset>
+                </li>
+                <li><span>Bing Aerial Map</span>
+                  <fieldset id="layer5">
+                    <label class="checkbox" for="visible5">
+                      visible <input id="visible5" class="visible" type="checkbox"/>
+                    </label>
+                    <label>
+                      opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                    </label>
+                  </fieldset>
+                </li>
                 <li>
-                  <span>Layer group</span>
+                  <span>Administrative Layers</span>
+                  <fieldset id="layer6">
+                    <label class="checkbox" for="visible6">
+                      visible <input id="visible6" class="visible" type="checkbox"/>
+                    </label>
+                    <label>
+                      opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                    </label>
+                  </fieldset>
+                  <ul>
+                    <li>
+                      <span>Food insecurity layer</span>
+                      <fieldset id="layer60">
+                        <label class="checkbox" for="visible60">
+                          visible <input id="visible60" class="visible" type="checkbox"/>
+                        </label>
+                        <label>
+                          opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                        </label>
+                      </fieldset>
+                    </li>
+                    <li>
+                      <span>World borders layer</span>
+                      <fieldset id="layer61">
+                        <label class="checkbox" for="visible61">
+                          visible <input id="visible61" class="visible" type="checkbox"/>
+                        </label>
+                        <label>
+                          opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                        </label>
+                      </fieldset>
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <span>Layer Group</span>
                   <fieldset id="layer1">
                     <label class="checkbox" for="visible1">
                       visible <input id="visible1" class="visible" type="checkbox"/>
@@ -120,11 +206,10 @@
         </div>
         <div class="card">
           <div class="card-header">
-            <h5>WorkArea <span class="ms-auto float-end"><button type="button"
-                  class="btn-close closeBtn"></button></span></h5>
+            <h5>WorkArea <span class="ms-auto float-end"><button type="button" class="btn-close closeBtn"></button></span></h5>
           </div>
           <div class="card-body">
-            fsdfs
+            <div id="info"> </div>
           </div>
         </div>
 
