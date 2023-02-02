@@ -16,7 +16,10 @@ $(function(){
         //$(this).parentsUntil('.col-md-3').hide();
         $("#workArea").toggle();
     })
-    
+    $(document).on('click','#toggleSwipe', function(){
+        // alert("Sfsdfsdfsd");
+         $("#swipe").toggle();
+     })
      
 });
 

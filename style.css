@@ -28,4 +28,43 @@ html, body {
 }
 #layertree label {
   display: block;
+  display: inline-block;
+}
+#mouse-position{
+  display: inline-block;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+  border-radius: 50%;
+  border: 5px solid rgba(180, 180, 180, 0.6);
+  border-top-color: rgba(0, 0, 0, 0.6);
+  animation: spinner 0.6s linear infinite;
+}
+#progress {
+  position: inherit;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+    box-shadow: 0px 0px 1px 2px rgb(255 204 0);
+    width: auto;
+    background: #001dff;
+  transition: width 250ms;
+}
+.legendimg {
+  display: block;
 }
