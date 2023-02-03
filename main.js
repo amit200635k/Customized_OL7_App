@@ -104,6 +104,7 @@ const stateBoundary =new TileLayer({
     url: 'http://localhost:8880/geoserver/UAVDATA/wms',
     params: {'LAYERS': 'UAVDATA:State_Boundary_Jhar0', 'TILED': true},
     serverType: 'geoserver',
+    //crossOrigin: 'anonymous',
     // Countries have transparency, so do not fade tiles:
     //transition: 0,
   }),
@@ -327,14 +328,18 @@ map.getLayers().forEach(function(layer, i) {
 
 map.on('singleclick', function (evt) {
   document.getElementById('info').innerHTML = '';
-  document.getElementById('info').innerHTML = evt.pixel;
+  document.getElementById('info').innerHTML ="Clicked Mouse Location : "+evt.coordinate[0]+","+evt.coordinate[1];
+  // evt.pixel;
+  console.log(evt.coordinate);
+
   const viewResolution = /** @type {number} */ (view.getResolution());
-  const url = stateBoundary.getFeatureInfoUrl(
-    evt.coordinate,
-    viewResolution,
-    'EPSG:4326',
-    {'INFO_FORMAT': 'text/html'}
-  );
+  let url ='http://localhost:8880/geoserver/UAVDATA/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&FORMAT=application/json&TRANSPARENT=true&QUERY_LAYERS=UAVDATA:State_Boundary_Jhar0&STYLES&LAYERS=UAVDATA:State_Boundary_Jhar0&exceptions=application%2Fvnd.ogc.se_inimage&INFO_FORMAT=application/json&FEATURE_COUNT=100&X=50&Y=50&SRS=EPSG%3A4326&WIDTH=101&HEIGHT=101&BBOX=84.40905768214726%2C22.985595336416733%2C85.51867682277226%2C24.095214477041733';
+  // const url = stateBoundary.getFeatureInfoUrl(
+  //   evt.coordinate,
+  //   viewResolution,
+  //   'EPSG:3857',
+  //   {'INFO_FORMAT': 'text/html'}
+  // );
   if (url) {
     fetch(url)
       .then((response) => response.text())
