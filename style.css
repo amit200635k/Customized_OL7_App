@@ -14,7 +14,7 @@ html, body {
     padding: -calc(var(--bs-gutter-x) * .5);
 }
 #workArea{
-  display: none;
+  display: noneX;
   position: absolute;
   cursor: move;
   z-index: 9;;
@@ -67,4 +67,17 @@ html, body {
 }
 .legendimg {
   display: block;
+}
+.custom-Measure{
+  position: absolute;
+    right: 0;
+    top: 50px;
+    /* background: red;
+    height: 50px;
+    width: 50px;
+    z-index: 9; */
+}
+.custom-info{    
+  right: 0;
+  top: 75px;
 }

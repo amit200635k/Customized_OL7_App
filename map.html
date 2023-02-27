@@ -20,7 +20,7 @@
     <div class="row">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Accident Prone Roads : GIS</a>
+          <a class="navbar-brand" href="#"><i class="far fa-car-crash"></i> Accident Prone Roads : GIS</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
             aria-controls="offcanvasNavbar2">
             <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,16 @@
                   <div class="nav-link" id="home"><i class="far fa-house"></i> WorkArea1</div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" id="toggleSwipe">Swiper</a>
+                  <div class="nav-link" id="measureLnk"><i class="far fa-ruler-combined"></i> Measure</div>
+                </li>
+                <li class="nav-item">
+                  <div class="nav-link" id="drawLnk"><i class="far fa-pencil-ruler"></i> Draw</div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="toggleSwipe"><i class="far fa-grip-lines-vertical"></i> Swiper</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="toggleAttrData"><i class="far fa-table"></i> DataTable</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -61,14 +70,14 @@
         </div>
       </nav>
     </div>
-    <div class="row">
-      <div class="col-md-3" id="workAreaX">
+    <div class="row" id="mainDiv">
+      <div class="col-md-3" id="workArea">
 
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Layers
+                <i class="far fa-layer-group"></i> Layers
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -152,7 +161,7 @@
                           <fieldset id="layer60">
                             <img class="legendimg" src="http://localhost:8880/geoserver/UAVDATA/wms?REQUEST=GetLegendGraphic&amp;VERSION=1.0.0&amp;FORMAT=image/png&amp;WIDTH=15&amp;HEIGHT=15&amp;LAYER=UAVDATA:State_Boundary_Jhar0">
                             <label class="checkbox" for="visible60">
-                              visible <input id="visible60" class="visible" type="checkbox"/>
+                              visible <input id="visible60" class="visible" type="checkbox" data-layrname="0_stateBoundary"/>
                             </label>
                             <label>
                               opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
@@ -163,7 +172,29 @@
                           <span>District Boundary</span>
                           <fieldset id="layer61">
                             <label class="checkbox" for="visible61">
-                              visible <input id="visible61" class="visible" type="checkbox"/>
+                              visible <input id="visible61" class="visible" type="checkbox" data-layrname="1_districtBoundary"/>
+                            </label>
+                            <label>
+                              opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                            </label>
+                          </fieldset>
+                        </li>
+                        <li>
+                          <span>Panchayat Boundary</span>
+                          <fieldset id="layer62">
+                            <label class="checkbox" for="visible62">
+                              visible <input id="visible62" class="visible" type="checkbox" data-layrname="2_panchayatBoundary"/>
+                            </label>
+                            <label>
+                              opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
+                            </label>
+                          </fieldset>
+                        </li>
+                        <li>
+                          <span>Village Boundary</span>
+                          <fieldset id="layer63">
+                            <label class="checkbox" for="visible63">
+                              visible <input id="visible63" class="visible" type="checkbox" data-layrname="3_villageBoundary"/>
                             </label>
                             <label>
                               opacity <input class="opacity" type="range" min="0" max="1" step="0.01"/>
@@ -216,7 +247,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Query Section
+                <i class="far fa-file-search"></i> Query Section
               </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -228,15 +259,36 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Visualize Section
+                <i class="far fa-chart-network"></i> Visualize Section
               </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <strong>-------Visualize-------</strong>  
+
+                 
+                
+                <input type="text" onkeydown="myFunction()">
+                <img id="angryimg" src="https://www.w3schools.com/graphics/smiley.gif"/>
+                <p id="demo"></p>
+                
+                <script>
+                function myFunction() {
+                  document.getElementById("angryimg").src="https://www.w3schools.com/graphics/angry.gif";
+                  document.getElementById("demo").innerHTML =Math.random();
+                  setTimeout(function(){f2()},500) ;
+                }
+                function f2(){
+                  document.getElementById("angryimg").src="https://www.w3schools.com/graphics/smiley.gif";
+                  document.getElementById("demo").innerHTML ="";
+                }
+                </script> 
+
+
               </div>
             </div>
           </div>
+          <div id="measureLnkAccordion" class="accordion-item" style="display:noneX"><h2 class="accordion-header" id="measure1"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#measure1a" aria-expanded="false" aria-controls="measure1a"><i class="far fa-drafting-compass"></i> Measure</button></h2><div id="measure1a" class="accordion-collapse collapse" aria-labelledby="measure1" data-bs-parent="#accordionExample"><div class="accordion-body"><form><label for="type">Measurement type  </label><select id="type" class="form-control form-select"><option value="LineString">Length (LineString)</option><option value="Polygon">Area (Polygon)</option></select><div class="form-check">    <input class="form-check-input" type="checkbox" checked id="segments">    <label class="form-check-label" for="segments">    Show segment lengths:    </label>  </div><div class="form-check">    <input class="form-check-input" type="checkbox" checked id="clear">    <label class="form-check-label" for="clear">    Clear previous measure:     </label>  </div> <div class="btn btn-sm btn-info" id="startMeasrBtn" >Start</div>  </form></div></div></div>
         </div> 
          
         <div class="card">
@@ -251,16 +303,26 @@
 
       </div>
 
-      <div class="col-md-9">
+      <div class="col-md-12" id="mapParentDiv">
+        <!-- <div id="Measure-position"></div> -->
         <div id="map"></div>
-        <input id="swipe" type="range" style="width: 100%">
+        <input id="swipe" type="range" style="display: none;width: 100%">
         <div id="progress"></div>
+        <div id="attrData" style="display: none">
+          <div class="card">
+            <div class="card-header">Data:</div>
+            <div class="card-body" id="dataTableDiv">
+
+            </div>
+          </div>
+        </div>
       </div>
 
 
     </div>
   </div>
   <script type="module" src="./main.js"></script>
+  
 
 </body>
 
